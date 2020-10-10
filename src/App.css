@@ -1,0 +1,17 @@
+.App {
+    display: flex;
+}
+
+.info-container {
+    padding: 3rem;
+    width: 100%;
+}
+
+.search-container {
+    text-align: center;
+}
+
+.image {
+    height: 100vh;
+    margin-left: auto;
+}

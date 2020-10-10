@@ -1,0 +1,27 @@
+.Dashboard {
+    color: var(--text-color);
+    text-transform: uppercase;
+}
+
+.Dashboard-date {
+    margin: 0;
+    letter-spacing: 1.5px;
+    font-size: 3rem;
+}
+
+.Dashboard-temperature {
+    font-size: 11rem;
+    margin: 0;
+}
+
+.Dashboard-weekly-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Dashboard-day-container {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

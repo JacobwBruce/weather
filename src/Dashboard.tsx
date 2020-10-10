@@ -40,7 +40,7 @@ const Dashboard: React.FC<Props> = ({ weather }) => {
     const date = new Date();
     const month = monthNames[date.getMonth()];
     const day = date.toDateString().slice(0, 3);
-    weather.daily.shift();
+    if (weather.daily.length === 8) weather.daily.shift();
     const weeklyComponents = weather.daily.map((day: Day) => {
         return (
             <div className='Dashboard-day-container' key={day.dt}>

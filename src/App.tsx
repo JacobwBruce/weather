@@ -34,11 +34,7 @@ function App() {
                             value={searchQuery}
                             onChange={(e) => changeSearchQuery(e.target.value)}
                         />
-                        <button
-                            type='reset'
-                            className='btn-search fas fa-search'
-                            onClick={handleSubmit}
-                        ></button>
+                        <button type='submit' className='btn-search fas fa-search'></button>
                     </form>
                 </div>
                 {weather && <Dashboard weather={weather} />}

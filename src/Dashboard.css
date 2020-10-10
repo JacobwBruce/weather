@@ -1,6 +1,7 @@
 .Dashboard {
     color: var(--text-color);
     text-transform: uppercase;
+    margin-top: 50px;
 }
 
 .Dashboard-date {
@@ -9,12 +10,17 @@
     font-size: 3rem;
 }
 
+.Dashboard-temperature-container {
+    display: flex;
+}
+
 .Dashboard-temperature {
     font-size: 11rem;
     margin: 0;
 }
 
 .Dashboard-weekly-container {
+    margin-top: 50px;
     display: flex;
     justify-content: space-evenly;
 }

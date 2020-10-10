@@ -9,7 +9,7 @@ import image from './images/snowing.jpg';
 //https:codepen.io/brandonkennedy/pen/yGjsi
 function App() {
     const [searchQuery, changeSearchQuery] = useState('');
-    const [weather, setWeather] = useState({});
+    const [weather, setWeather] = useState<object | null>(null);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -19,11 +19,9 @@ function App() {
             )
         ).data.coord;
         const { data } = await Axios.get(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_WEATHER_KEY}`
+            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`
         );
-        console.log(data);
         setWeather(data);
-        changeSearchQuery('');
     };
 
     return (
@@ -39,7 +37,7 @@ function App() {
                         />
                     </form>
                 </div>
-                <Dashboard weather={weather} />
+                {weather && <Dashboard weather={weather} />}
             </div>
             <img className='image' src={image} alt='' />
         </div>

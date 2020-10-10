@@ -1,3 +1,4 @@
+import { get } from 'https';
 import React from 'react';
 import './Dashboard.css';
 
@@ -8,11 +9,17 @@ interface Props {
 }
 
 interface Day {
+    dt: number;
     temp: {
         day: number;
     };
     weather: [{ icon: string }];
 }
+
+const getDay = (unixSeconds: number): string => {
+    const date = new Date(unixSeconds * 1000);
+    return date.toDateString().slice(0, 3);
+};
 
 const Dashboard: React.FC<Props> = ({ weather }) => {
     const monthNames = [
@@ -33,17 +40,16 @@ const Dashboard: React.FC<Props> = ({ weather }) => {
     const date = new Date();
     const month = monthNames[date.getMonth()];
     const day = date.toDateString().slice(0, 3);
-    console.log(weather);
-
+    weather.daily.shift();
     const weeklyComponents = weather.daily.map((day: Day) => {
         return (
-            <div className='Dashboard-day-container'>
-                <span>day</span>
+            <div className='Dashboard-day-container' key={day.dt}>
+                <span>{getDay(day.dt)}</span>
                 <img
                     src={`http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
                     alt=''
                 />
-                <span>{Math.round(day.temp.day)}</span>
+                <span>{Math.round(day.temp.day)}°</span>
             </div>
         );
     });

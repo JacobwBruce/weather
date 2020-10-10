@@ -6,7 +6,6 @@ import image from './images/snowing.jpg';
 
 //Design: https://dribbble.com/vowles/projects/491714-Weather-project
 
-//https:codepen.io/brandonkennedy/pen/yGjsi
 function App() {
     const [searchQuery, changeSearchQuery] = useState('');
     const [weather, setWeather] = useState<object | null>(null);
@@ -35,6 +34,11 @@ function App() {
                             value={searchQuery}
                             onChange={(e) => changeSearchQuery(e.target.value)}
                         />
+                        <button
+                            type='reset'
+                            className='btn-search fas fa-search'
+                            onClick={handleSubmit}
+                        ></button>
                     </form>
                 </div>
                 {weather && <Dashboard weather={weather} />}

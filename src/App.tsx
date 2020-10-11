@@ -3,24 +3,34 @@ import React, { useState } from 'react';
 import './App.css';
 import Dashboard from './Dashboard';
 import image from './images/snowing.jpg';
+import Welcome from './Welcome';
+import Error from './Error';
 
 //Design: https://dribbble.com/vowles/projects/491714-Weather-project
-
+// https://medium.muz.li/weather-app-inspiration-3378000015c6
+// https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
 function App() {
     const [searchQuery, changeSearchQuery] = useState('');
     const [weather, setWeather] = useState<object | null>(null);
+    const [mainComponent, setMainComponent] = useState<any>(<Welcome />);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        const { lat, lon } = (
-            await Axios.get(
-                `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&units=metric&APPID=${process.env.REACT_APP_WEATHER_KEY}`
-            )
-        ).data.coord;
-        const { data } = await Axios.get(
-            `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`
-        );
-        setWeather(data);
+        setMainComponent(<div>LOADING</div>);
+        try {
+            const { lat, lon } = (
+                await Axios.get(
+                    `https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&units=metric&APPID=${process.env.REACT_APP_WEATHER_KEY}`
+                )
+            ).data.coord;
+            const { data } = await Axios.get(
+                `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`
+            );
+            setMainComponent(<Dashboard weather={data} />);
+        } catch (err) {
+            setMainComponent(<Error errorMessage={err} />);
+        }
+        // setWeather(data);
     };
 
     return (
@@ -37,7 +47,8 @@ function App() {
                         <button type='submit' className='btn-search fas fa-search'></button>
                     </form>
                 </div>
-                {weather && <Dashboard weather={weather} />}
+                {/* {weather ? <Dashboard weather={weather} /> : <Welcome />} */}
+                {mainComponent}
             </div>
             <img className='image' src={image} alt='' />
         </div>

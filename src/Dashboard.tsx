@@ -1,4 +1,3 @@
-import { get } from 'https';
 import React from 'react';
 import './Dashboard.css';
 
@@ -41,6 +40,7 @@ const Dashboard: React.FC<Props> = ({ weather }) => {
     const month = monthNames[date.getMonth()];
     const day = date.toDateString().slice(0, 3);
     if (weather.daily.length === 8) weather.daily.shift();
+
     const weeklyComponents = weather.daily.map((day: Day) => {
         return (
             <div className='Dashboard-day-container' key={day.dt}>

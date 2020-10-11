@@ -1,11 +1,11 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
 import './App.css';
-import Dashboard from './Dashboard';
+import Dashboard from './Components/Dashboard';
 import image from './images/snowing.jpg';
-import Welcome from './Welcome';
-import Error from './Error';
-import Loading from './Loading';
+import Welcome from './Components/Welcome';
+import Error from './Components/Error';
+import Loading from './Components/Loading';
 
 //Design: https://dribbble.com/vowles/projects/491714-Weather-project
 // https://medium.muz.li/weather-app-inspiration-3378000015c6

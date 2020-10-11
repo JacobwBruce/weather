@@ -60,7 +60,9 @@ const Dashboard: React.FC<Props> = ({ weather }) => {
                 {day} {date.getDate()} <br /> {month}
             </h1>
             <div className='Dashboard-temperature-container'>
-                <h1 className='Dashboard-temperature'>{Math.round(weather.current.temp)}°</h1>
+                <h1 className={`Dashboard-temperature ${weather.current.weather[0].main}`}>
+                    {Math.round(weather.current.temp)}°
+                </h1>
                 <img
                     src={`http://openweathermap.org/img/wn/${weather.current.weather[0].icon}@4x.png`}
                     alt=''

@@ -31,3 +31,24 @@
     flex-direction: column;
     text-align: center;
 }
+
+.Thunderstorm {
+    color: #7f5ead;
+}
+
+.Clear {
+    color: #d0a870;
+}
+
+.Rain,
+.Drizzle {
+    color: #74c1df;
+}
+
+.Snow {
+    color: #b39089;
+}
+
+.Clouds {
+    color: #a8c0b5;
+}

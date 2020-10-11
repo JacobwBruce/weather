@@ -11,7 +11,7 @@ const Error: React.FC<Props> = ({ errorMessage }) => {
             <h4>
                 Oops! There was a problem, perhaps you miss-spelled the location or it is not a
                 valid location in the{' '}
-                <a target='_blank' href='https://openweathermap.org/api'>
+                <a target='_blank' href='https://openweathermap.org/api' rel='noopener noreferrer'>
                     API
                 </a>
             </h4>

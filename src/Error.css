@@ -1,0 +1,12 @@
+.Error {
+    margin-top: 100px;
+}
+
+.Error h4 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.Error-message {
+    color: red;
+}

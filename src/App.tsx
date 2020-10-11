@@ -5,18 +5,18 @@ import Dashboard from './Dashboard';
 import image from './images/snowing.jpg';
 import Welcome from './Welcome';
 import Error from './Error';
+import Loading from './Loading';
 
 //Design: https://dribbble.com/vowles/projects/491714-Weather-project
 // https://medium.muz.li/weather-app-inspiration-3378000015c6
 // https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
 function App() {
     const [searchQuery, changeSearchQuery] = useState('');
-    const [weather, setWeather] = useState<object | null>(null);
     const [mainComponent, setMainComponent] = useState<any>(<Welcome />);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
-        setMainComponent(<div>LOADING</div>);
+        setMainComponent(<Loading />);
         try {
             const { lat, lon } = (
                 await Axios.get(
@@ -30,7 +30,6 @@ function App() {
         } catch (err) {
             setMainComponent(<Error errorMessage={err} />);
         }
-        // setWeather(data);
     };
 
     return (
@@ -47,7 +46,6 @@ function App() {
                         <button type='submit' className='btn-search fas fa-search'></button>
                     </form>
                 </div>
-                {/* {weather ? <Dashboard weather={weather} /> : <Welcome />} */}
                 {mainComponent}
             </div>
             <img className='image' src={image} alt='' />

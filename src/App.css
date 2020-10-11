@@ -14,6 +14,7 @@
 .image {
     height: 100vh;
     margin-left: auto;
+    width: 750px;
 }
 
 .btn-search {
@@ -52,4 +53,25 @@
     .image {
         display: none;
     }
+}
+
+.Thunderstorm-image {
+    background-image: url('./images/rain.jpg');
+}
+
+.Clear-image {
+    background-image: url('./images/rain.jpg');
+}
+
+.Rain-image,
+.Drizzle-image {
+    background-image: url('./images/rain.jpg');
+}
+
+.Snow-image {
+    background-image: url('./images/rain.jpg');
+}
+
+.Clouds-image {
+    background-image: url('./images/rain.jpg');
 }

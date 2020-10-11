@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import './App.css';
 import Dashboard from './Components/Dashboard';
-import image from './images/snowing.jpg';
+import image from './images/rain.jpg';
 import Welcome from './Components/Welcome';
 import Error from './Components/Error';
 import Loading from './Components/Loading';
@@ -13,6 +13,7 @@ import Loading from './Components/Loading';
 function App() {
     const [searchQuery, changeSearchQuery] = useState('');
     const [mainComponent, setMainComponent] = useState<any>(<Welcome />);
+    const [image, setImage] = useState<string>('');
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -26,6 +27,7 @@ function App() {
             const { data } = await Axios.get(
                 `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${process.env.REACT_APP_WEATHER_KEY}`
             );
+            setImage(`${data.current.weather[0].main}-image`);
             setMainComponent(<Dashboard weather={data} />);
         } catch (err) {
             setMainComponent(<Error errorMessage={err} />);
@@ -48,7 +50,8 @@ function App() {
                 </div>
                 {mainComponent}
             </div>
-            <img className='image' src={image} alt='' />
+            {/* <img className='image' src={image} alt='' /> */}
+            <div className={`image ${image}`} />
         </div>
     );
 }

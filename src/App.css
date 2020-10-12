@@ -49,10 +49,9 @@
     filter: grayscale(0);
 }
 
-@media (max-width: 1100px) {
-    .image {
-        display: none;
-    }
+.no-image {
+    height: 0;
+    width: 0;
 }
 
 .Thunderstorm-image {
@@ -74,4 +73,10 @@
 
 .Clouds-image {
     background-image: url('./images/rain.jpg');
+}
+
+@media (max-width: 1100px) {
+    .image {
+        display: none;
+    }
 }

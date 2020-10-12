@@ -2,7 +2,6 @@ import Axios from 'axios';
 import React, { useState } from 'react';
 import './App.css';
 import Dashboard from './Components/Dashboard';
-import image from './images/rain.jpg';
 import Welcome from './Components/Welcome';
 import Error from './Components/Error';
 import Loading from './Components/Loading';
@@ -13,7 +12,7 @@ import Loading from './Components/Loading';
 function App() {
     const [searchQuery, changeSearchQuery] = useState('');
     const [mainComponent, setMainComponent] = useState<any>(<Welcome />);
-    const [image, setImage] = useState<string>('');
+    const [image, setImage] = useState<string | null>(null);
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
@@ -50,8 +49,7 @@ function App() {
                 </div>
                 {mainComponent}
             </div>
-            {/* <img className='image' src={image} alt='' /> */}
-            <div className={`image ${image}`} />
+            <div className={`image ${image || 'no-image'}`} />
         </div>
     );
 }

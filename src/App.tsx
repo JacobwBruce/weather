@@ -34,22 +34,24 @@ function App() {
     };
 
     return (
-        <div className='App'>
-            <div className='info-container'>
-                <div className='search-container'>
-                    <form onSubmit={handleSubmit}>
-                        <input
-                            type='text'
-                            className='search'
-                            value={searchQuery}
-                            onChange={(e) => changeSearchQuery(e.target.value)}
-                        />
-                        <button type='submit' className='btn-search fas fa-search'></button>
-                    </form>
+        <div className='App-container'>
+            <div className='App'>
+                <div className='info-container'>
+                    <div className='search-container'>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type='text'
+                                className='search'
+                                value={searchQuery}
+                                onChange={(e) => changeSearchQuery(e.target.value)}
+                            />
+                            <button type='submit' className='btn-search fas fa-search'></button>
+                        </form>
+                    </div>
+                    {mainComponent}
                 </div>
-                {mainComponent}
+                <div className={`image ${image || 'no-image'}`} />
             </div>
-            <div className={`image ${image || 'no-image'}`} />
         </div>
     );
 }

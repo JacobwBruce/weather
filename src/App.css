@@ -1,5 +1,7 @@
 .App {
     display: flex;
+    max-width: 1440px;
+    max-height: 729px;
 }
 
 .info-container {
@@ -15,6 +17,7 @@
     height: 100vh;
     margin-left: auto;
     width: 750px;
+    max-height: 729px;
 }
 
 .btn-search {
@@ -82,5 +85,25 @@
 @media (max-width: 1100px) {
     .image {
         display: none;
+    }
+}
+
+@media (min-width: 1440px) {
+    .App-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .App {
+        background-color: #fff;
+        width: 1440px;
+        height: 729px;
+        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+    body {
+        background: rgb(34, 193, 195);
+        background: linear-gradient(94deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
     }
 }

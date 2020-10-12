@@ -18,6 +18,7 @@
     margin-left: auto;
     width: 750px;
     max-height: 729px;
+    background-size: cover;
 }
 
 .btn-search {
@@ -56,15 +57,15 @@
     height: 0;
     width: 0;
 }
-
+.Squall-image,
 .Thunderstorm-image {
     background-image: url('./images/thunderstorm.jpeg');
 }
-
+.Sand-image,
 .Clear-image {
     background-image: url('./images/clear.jpeg');
 }
-
+.Mist-image,
 .Rain-image,
 .Drizzle-image {
     background-image: url('./images/rain.jpeg');
@@ -73,12 +74,15 @@
 .Snow-image {
     background-image: url('./images/rain.jpeg');
 }
-
+.Haze-image,
+.Dust-image,
+.Fog-image,
 .Clouds-image {
     background-image: url('./images/cloudy.jpeg');
 }
-
-.Atmosphere-image {
+.Ash-image,
+.Smoke-image,
+.Tornado-image {
     background-image: url('./images/atmosphere.jpeg');
 }
 

@@ -55,24 +55,28 @@
 }
 
 .Thunderstorm-image {
-    background-image: url('./images/rain.jpg');
+    background-image: url('./images/thunderstorm.jpeg');
 }
 
 .Clear-image {
-    background-image: url('./images/rain.jpg');
+    background-image: url('./images/clear.jpeg');
 }
 
 .Rain-image,
 .Drizzle-image {
-    background-image: url('./images/rain.jpg');
+    background-image: url('./images/rain.jpeg');
 }
 
 .Snow-image {
-    background-image: url('./images/rain.jpg');
+    background-image: url('./images/rain.jpeg');
 }
 
 .Clouds-image {
-    background-image: url('./images/rain.jpg');
+    background-image: url('./images/cloudy.jpeg');
+}
+
+.Atmosphere-image {
+    background-image: url('./images/atmosphere.jpeg');
 }
 
 @media (max-width: 1100px) {
